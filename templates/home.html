@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>My Journal</h1>
+{% set recent = journal_data[-3:] %}
+
+{% for entry in recent|reverse: %}
+<li>
+    <a href="{{ url_for('read',entry_id = entry.id) }}"><h2>{{entry.title}}</h2></a>
+    <a href="{{url_for('read',entry_id = entry.id)}}"><h3>{{entry.date}}</h3></a>
+    <a href="{{url_for('read',entry_id = entry.id)}}" >read</a>
+    <a href="{{ url_for('delete', entry_id = entry.id) }}">✖</a>
+</li>
+{% else %}
+<li>No entries as yet.</li>
+{% endfor %}
+{% endblock %}

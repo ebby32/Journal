@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}View Entry{% endblock %}
+
+{%block content %}
+<h1>{{ body.title }}</h1>
+<h2>{{ body.date }}</h2>
+<p>{{ body.body }}</p>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html'}
+{% block title %}Read{%endblock%}
+
+{% block content %}
+
+<h2>{{entry.title}}</h2>
+<h3>{{entry.date}}</h3>
+<p>{{entry.body}}</p>
+<a href="{{ url_for('edit_entry', entry_id = entry.id }}">Edit</a>
+<a href="{{ url_for('delete', entry_id = entry.id }}">delete</a>
+
+{% endblock %}
