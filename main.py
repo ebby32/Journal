@@ -12,11 +12,15 @@ from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///journal.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL','sqlite:///journal.db')
 app.secret_key = "This_is_another_secret_key"
 
 ckeditor = CKEditor(app)
